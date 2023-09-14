@@ -4,7 +4,17 @@ module "package_dir_with_npm_install" {
   create_function = false
 
   runtime     = "nodejs14.x"
-  source_path = local.requirements_path
+  source_path = {
+    path     = "${var.repo_root_path}/app",
+    commands = [
+      "npm install",
+      ":zip"
+    ],
+    patterns = [
+      "!.*/.*\\.txt",    # Skip all txt files recursively
+      "node_modules/.+", # Include all node_modules
+    ],
+  }
 }
 
 

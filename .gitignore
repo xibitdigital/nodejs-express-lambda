@@ -21,3 +21,5 @@ terragrunt-debug.tfvars.json
 node_modules
 .idea
 .env
+
+dist

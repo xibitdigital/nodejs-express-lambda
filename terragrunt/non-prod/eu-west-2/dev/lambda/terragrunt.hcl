@@ -10,9 +10,8 @@ locals {
   aws_region = local.region_vars.locals.aws_region
 }
 
-
 terraform {
-  source = "../../../../../terraform/modules//lambda"
+  source = "${get_repo_root()}/terraform/modules//lambda"
 }
 
 include "root" {
@@ -22,5 +21,7 @@ include "root" {
 # Set common variables for the environment. This is automatically pulled in the root terragrunt.hcl configuration to
 # feed forward to the child modules.
 inputs = {
-  lambda_function_name = "test_express_typescript"
+  repo_root_path = get_repo_root()
+  # lambda_function_name = "test_express_typescript"
+  # lambda_bucket_prefix = "xibit_digital_lambdas"
 }
