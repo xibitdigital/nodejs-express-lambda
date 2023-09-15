@@ -22,6 +22,7 @@ include "root" {
 # feed forward to the child modules.
 inputs = {
   repo_root_path = get_repo_root()
-  # lambda_function_name = "test_express_typescript"
-  # lambda_bucket_prefix = "xibit_digital_lambdas"
+  lambda_function_name = "test_express_typescript"
+  lambda_prefix = "xibit_digital_lambdas"
+  lambda_runtime = "nodejs18.x"
 }
