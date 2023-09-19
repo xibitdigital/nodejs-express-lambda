@@ -16,6 +16,32 @@ repos:
           - '--args=--only=terraform_documented_outputs'
           - '--args=--only=terraform_documented_variables'
           - '--args=--only=terraform_typed_variables'
+
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.1.22
+    hooks:
+      - id: terragrunt-hclfmt
+        name: Terragrunt hclfmt
+        description: Rewrites all Terragrunt configuration files to a canonical format
+        entry: hooks/terragrunt-hclfmt.sh
+        language: script
+        files: \.hcl$
+        exclude: >
+          (?x)^(
+            .+\.terraform\/.*$|
+            .+\.terragrunt-cache\/.*$|
+          )$
+      - id: shellcheck
+        name: Shellcheck Bash Linter
+        description: Performs linting on bash scripts
+        entry: hooks/shellcheck.sh
+        language: script
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.0.3
+    hooks:
+      - id: prettier
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
     hooks:

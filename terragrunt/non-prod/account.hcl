@@ -3,5 +3,5 @@
 locals {
   account_name   = "xibitdigital_notprod"
   aws_account_id = get_env("AWS_ACCOUNT_ID", "")
-  owner = "xibitdigital"
+  owner          = "xibitdigital"
 }
