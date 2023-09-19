@@ -1,6 +1,6 @@
 import awsgi
 
-from flask import Flask, request, Response
+from flask import Flask, request
 import json
 
 app = Flask(__name__)
@@ -12,10 +12,21 @@ NOTSTARTED = 'Not Started'
 INPROGRESS = 'In Progress'
 COMPLETED = 'Completed'
 
+def response(status_code, data):
+    return {
+        "StatusCode": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": json.dumps(data)
+    }
+
+
 @app.route('/')
 def index():
-    return 'Hello, World!'
+    data = 'Hello World!'
 
+    return response(200, data)
 
 @app.route('/item/new', methods=['POST'])
 def add_item():
@@ -28,13 +39,12 @@ def add_item():
 
     # Return error if item not added
     if todos is None:
-        response = Response("{'error': 'Item not added - " + item + "'}", status=400 , mimetype='application/json')
-        return response
+        data = {'error': 'Item not added - " + item + "'}
+
+        return response(400, json.dumps(data))
 
     # Return response
-    response = Response(json.dumps(todos), mimetype='application/json')
-
-    return response
+    return response(200, json.dumps(todos))
 
 @app.route('/items/all')
 def get_all_items():
@@ -42,9 +52,9 @@ def get_all_items():
     res_data = { "count": len(todos), "items": todos }
 
     # Return response
-    response = Response(json.dumps(res_data), mimetype='application/json')
+    
+    return response(200, json.dumps(res_data))
 
-    return response
 
 def handler(event, context):
     return awsgi.response(app, event, context)

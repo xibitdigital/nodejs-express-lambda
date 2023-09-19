@@ -23,7 +23,7 @@ module "lambda_function_from_package" {
   local_existing_package = module.package_dir_poetry_no_docker.local_filename
 
   function_name = var.lambda_function_name
-  handler       = "app.main.handler"
+  handler       = var.lambda_handler
   runtime       = var.lambda_runtime
 }
 

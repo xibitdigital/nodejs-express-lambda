@@ -23,6 +23,7 @@ include "root" {
 inputs = {
   repo_root_path       = get_repo_root()
   lambda_function_name = "test_python_todo"
+  lambda_handler       = "src/app/main.handler"
   lambda_prefix        = "xibit_digital_lambdas"
   lambda_runtime       = "python3.10"
 }

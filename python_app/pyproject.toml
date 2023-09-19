@@ -9,8 +9,7 @@ packages = [{include = "app", from = "src"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 flask = "^2.3.3"
-awsgi = "^0.0.5"
-jsonify = "^0.5"
+aws-wsgi = "^0.2.7"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.3.1"

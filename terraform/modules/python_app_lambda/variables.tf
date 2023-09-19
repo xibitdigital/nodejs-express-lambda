@@ -10,6 +10,10 @@ variable "lambda_function_name" {
   description = "lambda function name"
 }
 
+variable "lambda_handler" {
+  type        = string
+  description = "lambda handler"
+}
 
 variable "lambda_prefix" {
   type        = string
