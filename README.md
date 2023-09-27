@@ -1,6 +1,6 @@
-# ode-express-typescript
+# lambda api gateway
 
-Express typescript app deployed with Terragrunt best practices.
+Lambda api gateway apps deployed with Terragrunt best practices.
 
 # Links
 
@@ -13,3 +13,9 @@ Express typescript app deployed with Terragrunt best practices.
 - https://advancedweb.hu/how-to-use-openapi-with-api-gateway-rest-apis/
 - https://aws.amazon.com/blogs/compute/optimizing-node-js-dependencies-in-aws-lambda/
 - https://informediq.com/python-src-layout-for-aws-lambdas/
+- https://github.com/cliffdias/HelloworldAPI/blob/main/apigateway.tf
+- https://github.com/hashicorp/learn-cdktf-assets-stacks-lambda/blob/fully-integrated/cdktf/main.ts
+- https://github.com/slank/awsgi
+- https://github.com/AaronKalair/example-terragrunt-repo/blob/master/dev/eu-west-1/terragrunt.hcl
+- https://github.com/gruntwork-io/terragrunt-action
+- https://github.com/terraform-aws-modules/terraform-aws-apigateway-v2/blob/master/examples/complete-http/main.tf

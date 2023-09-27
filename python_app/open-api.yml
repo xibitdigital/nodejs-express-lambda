@@ -9,6 +9,8 @@ paths:
     get:
       summary: List Posts
       operationId: listPosts
+      security:
+        - ApiKeyAuth: []
       requestBody:
         required: true
         content:
@@ -30,6 +32,8 @@ paths:
     post:
       summary: Create a new Post
       operationId: createPost
+      security:
+        - ApiKeyAuth: []
       responses:
         '201':
           description: Success
@@ -79,6 +83,12 @@ components:
             updatedDate:
               type: string
               format: date-time
+
+    securitySchemes:
+      ApiKeyAuth:
+        type: apiKey
+        name: x-api-key
+        in: header
     CreatePostRequestBody:
       allOf:
         - $ref: '#/components/schemas/BasePost'
@@ -86,3 +96,6 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/Post'
+
+security:
+  - ApiKeyAuth: []

@@ -21,9 +21,13 @@ include "root" {
 # Set common variables for the environment. This is automatically pulled in the root terragrunt.hcl configuration to
 # feed forward to the child modules.
 inputs = {
-  repo_root_path       = get_repo_root()
-  lambda_function_name = "test_python_todo"
-  lambda_handler       = "src/app/main.handler"
-  lambda_prefix        = "xibit_digital_lambdas"
-  lambda_runtime       = "python3.10"
+  lambda_repo_root_path   = get_repo_root()
+  lambda_function_name    = "test_python_todo"
+  lambda_handler          = "src/app/main.handler"
+  lambda_prefix           = "xibit_digital_lambdas"
+  lambda_runtime          = "python3.10"
+  lambda_identity_timeout = "1000"
+  # common vars
+  aws_region  = local.aws_region
+  environment = local.env
 }

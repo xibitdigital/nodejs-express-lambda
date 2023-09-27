@@ -1,0 +1,17 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "",
+  "author": "daniele@xibitdigital.com",
+  "license": "MIT",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint **/*.js"
+  },
+  "dependencies": {
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.267.1",
+    "eslint": "^7.5.0"
+  }
+}
